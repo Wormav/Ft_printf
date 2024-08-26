@@ -6,7 +6,7 @@
 /*   By: jlorette <jlorette@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/26 14:35:12 by jlorette          #+#    #+#             */
-/*   Updated: 2024/08/26 18:26:02 by jlorette         ###   ########.fr       */
+/*   Updated: 2024/08/26 18:40:45 by jlorette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static int	putnbr_hex(unsigned long n)
 	return (result);
 }
 
-int	ft_putptr(void *ptr)
+int	putptr(void *ptr)
 {
 	int	result;
 

@@ -6,7 +6,7 @@
 /*   By: jlorette <jlorette@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/26 14:31:25 by jlorette          #+#    #+#             */
-/*   Updated: 2024/08/26 18:27:09 by jlorette         ###   ########.fr       */
+/*   Updated: 2024/08/26 20:15:48 by jlorette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,10 @@
 
 # include <unistd.h>
 
-int	ft_putptr(void *ptr);
+
+void	putnbr_hex_fd(unsigned int n, int fd, char format);
+void	putnbr_unsigned_fd(unsigned int n, int fd);
+int		putptr(void *ptr);
+
 
 #endif
