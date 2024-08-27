@@ -6,14 +6,13 @@
 /*   By: jlorette <jlorette@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/27 14:05:29 by jlorette          #+#    #+#             */
-/*   Updated: 2024/08/27 16:19:35 by jlorette         ###   ########.fr       */
+/*   Updated: 2024/08/27 18:10:33 by jlorette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include <stdarg.h>
 #include "../libft/libft.h"
-#include <stdio.h> // A RETIRER
 
 int ft_printf(const char *str, ...)
 {
@@ -48,6 +47,14 @@ int ft_printf(const char *str, ...)
 			}
 			else if (*str == 'p')
 				target += putptr(va_arg(args, void *));
+			else if (*str == 'd' || *str == 'i')
+				ft_putnbr_fd(va_arg(args, int), 1);
+			else if (*str == 'u')
+				putnbr_unsigned_fd(va_arg(args, unsigned int), 1);
+			else if (*str == 'x')
+				putnbr_hex_fd(va_arg(args, unsigned int), 1, 'x');
+			else if (*str == 'X')
+				putnbr_hex_fd(va_arg(args, unsigned int), 1, 'X');
 		}
 		else
 		{
