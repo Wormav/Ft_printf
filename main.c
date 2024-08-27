@@ -6,7 +6,7 @@
 /*   By: jlorette <jlorette@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/26 19:10:45 by jlorette          #+#    #+#             */
-/*   Updated: 2024/08/26 20:15:30 by jlorette         ###   ########.fr       */
+/*   Updated: 2024/08/27 16:47:02 by jlorette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,10 @@
 #include "libft/libft.h"
 
 int main() {
-    // Test pour %%c avec un caractère non imprimable
+
+	// TESTS DES FONTIONS DE CONVERTIONS -------------------------------------------------------------------
+
+    /*// Test pour %%c avec un caractère non imprimable
     printf("Test pour: %%c avec '\\n' => ");
     fflush(stdout);
     ft_putchar_fd('\n', 1);
@@ -77,7 +80,14 @@ int main() {
     // Test pour %%X avec une valeur hexadécimale élevée
     printf("\nTest pour: %%X avec 0xABCDEF => ");
     fflush(stdout);
-    putnbr_hex_fd(0xABCDEF, 1, 'X');
+    putnbr_hex_fd(0xABCDEF, 1, 'X');*/
 
+	// TESTS DES FONTIONS DE CONVERTIONS -------------------------------------------------------------------
+	char* test_ptr = "427";
+	printf("%s %p %s %c %d\n","coucou",test_ptr, "toi", 'i', 1);
+	ft_printf("%s %p %s %c %d\n","coucou",test_ptr, "toi", 'i', 1);
+	/*printf("\nTest pour: %%p avec un pointeur vers int => ");
+	fflush(stdout);
+	putptr(&test_ptr);*/
     return 0;
 }
