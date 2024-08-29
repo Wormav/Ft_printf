@@ -6,7 +6,7 @@
 /*   By: jlorette <jlorette@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/29 21:33:11 by jlorette          #+#    #+#             */
-/*   Updated: 2024/08/29 22:03:38 by jlorette         ###   ########.fr       */
+/*   Updated: 2024/08/29 22:07:23 by jlorette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,9 @@
 #include <stdarg.h>
 #include "../libft/libft.h"
 
-
-
-static void string_gestion(char format, va_list *args, int *count)
+static void	string_gestion(char format, va_list *args, int *count)
 {
-	char *s;
+	char	*s;
 
 	if (format == 'c')
 	{
@@ -35,7 +33,7 @@ static void string_gestion(char format, va_list *args, int *count)
 	}
 }
 
-static void	decimal_gestion(char format, va_list *args, int *count)
+static	void	decimal_gestion(char format, va_list *args, int *count)
 {
 	if (format == 'p')
 		*count += putptr(va_arg(*args, void *));
@@ -49,21 +47,22 @@ static void	decimal_gestion(char format, va_list *args, int *count)
 		putnbr_hex_fd(va_arg(*args, unsigned int), count, 'X');
 }
 
-static void	process(char format, va_list *args, int *count)
+static	void	process(char format, va_list *args, int *count)
 {
 	if (format == '%')
 		print_pourcent(count);
 	else if (format == 'c' || format == 's')
 		string_gestion(format, args, count);
-	else if (format == 'd' || format == 'i' || format == 'u' || format == 'x' || format == 'p' || format == 'X')
+	else if (format == 'd' || format == 'i' || format == 'u' || format == 'x'
+		|| format == 'p' || format == 'X')
 		decimal_gestion(format, args, count);
 }
 
-int ft_printf(const char *str, ...)
+int	ft_printf(const char *str, ...)
 {
-	va_list args;
-	int count;
-	char *s;
+	va_list	args;
+	int		count;
+	char	*s;
 
 	if (!str)
 		return (-1);

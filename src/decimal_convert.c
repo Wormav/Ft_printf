@@ -6,7 +6,7 @@
 /*   By: jlorette <jlorette@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/26 18:57:17 by jlorette          #+#    #+#             */
-/*   Updated: 2024/08/27 20:56:49 by jlorette         ###   ########.fr       */
+/*   Updated: 2024/08/29 22:09:01 by jlorette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,8 @@ void	putnbr_unsigned_fd(unsigned int n, int *count)
 	}
 }
 
-void	putnbr_hex_fd(unsigned int n, int *count, char format) {
+void	putnbr_hex_fd(unsigned int n, int *count, char format)
+{
 	char	*hex_digits;
 
 	if (format == 'x')
