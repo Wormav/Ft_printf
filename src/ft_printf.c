@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jlorette <jlorette@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/27 14:05:29 by jlorette          #+#    #+#             */
-/*   Updated: 2024/08/27 21:14:57 by jlorette         ###   ########.fr       */
+/*   Created: 2024/08/29 21:33:11 by jlorette          #+#    #+#             */
+/*   Updated: 2024/08/29 22:03:38 by jlorette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,38 +14,49 @@
 #include <stdarg.h>
 #include "../libft/libft.h"
 
-static void decimal_gestion(char format, va_list args, int *count)
-{
-	if (format == 'd' || format == 'i')
-		ft_putnbr_count(va_arg(args, int), count);
-	else if (format == 'u')
-		putnbr_unsigned_fd(va_arg(args, unsigned int), count);
-	else if (format == 'x' || format == 'X')
-		putnbr_hex_fd(va_arg(args, unsigned int), count, format);
-	else if (format == 'p')
-		*count += putptr(va_arg(args, void *));
-}
 
-static void string_gestion(char format, va_list args, int *count)
+
+static void string_gestion(char format, va_list *args, int *count)
 {
 	char *s;
 
 	if (format == 'c')
 	{
-		ft_putchar_fd(va_arg(args, int), 1);
+		ft_putchar_fd(va_arg(*args, int), 1);
 		(*count)++;
 	}
 	else if (format == 's')
 	{
-		s = va_arg(args, char *);
-		if (s)
-		{
-			ft_putstr_fd(s, 1);
-			(*count) += ft_strlen(s);
-		}
-		else
-			return ;
+		s = va_arg(*args, char *);
+		if (!s)
+			s = "(null)";
+		ft_putstr_fd(s, 1);
+		(*count) += ft_strlen(s);
 	}
+}
+
+static void	decimal_gestion(char format, va_list *args, int *count)
+{
+	if (format == 'p')
+		*count += putptr(va_arg(*args, void *));
+	else if (format == 'd' || format == 'i')
+		ft_putnbr_count(va_arg(*args, int), count);
+	else if (format == 'u')
+		putnbr_unsigned_fd(va_arg(*args, unsigned int), count);
+	else if (format == 'x')
+		putnbr_hex_fd(va_arg(*args, unsigned int), count, 'x');
+	else if (format == 'X')
+		putnbr_hex_fd(va_arg(*args, unsigned int), count, 'X');
+}
+
+static void	process(char format, va_list *args, int *count)
+{
+	if (format == '%')
+		print_pourcent(count);
+	else if (format == 'c' || format == 's')
+		string_gestion(format, args, count);
+	else if (format == 'd' || format == 'i' || format == 'u' || format == 'x' || format == 'p' || format == 'X')
+		decimal_gestion(format, args, count);
 }
 
 int ft_printf(const char *str, ...)
@@ -63,32 +74,7 @@ int ft_printf(const char *str, ...)
 		if (*str == '%' && *(str + 1) != '\0')
 		{
 			str++;
-			if (*str == '%')
-			{
-				ft_putchar_fd('%', 1);
-				count++;
-			}
-			else if (*str == 'c')
-			{
-				ft_putchar_fd(va_arg(args, int), 1);
-				count++;
-			}
-			else if (*str == 's')
-			{
-				s = va_arg(args, char *);
-				ft_putstr_fd(s, 1);
-				count += ft_strlen(s);
-			}
-			else if (*str == 'p')
-				count += putptr(va_arg(args, void *));
-			else if (*str == 'd' || *str == 'i')
-				ft_putnbr_count(va_arg(args, int), &count);
-			else if (*str == 'u')
-				putnbr_unsigned_fd(va_arg(args, unsigned int), &count);
-			else if (*str == 'x')
-				putnbr_hex_fd(va_arg(args, unsigned int), &count, 'x');
-			else if (*str == 'X')
-				putnbr_hex_fd(va_arg(args, unsigned int), &count, 'X');
+			process(*str, &args, &count);
 		}
 		else
 		{

@@ -6,7 +6,7 @@
 /*   By: jlorette <jlorette@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/26 14:31:25 by jlorette          #+#    #+#             */
-/*   Updated: 2024/08/27 20:57:20 by jlorette         ###   ########.fr       */
+/*   Updated: 2024/08/29 21:59:08 by jlorette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,6 @@ void	putnbr_hex_fd(unsigned int n, int *count, char format);
 void	putnbr_unsigned_fd(unsigned int n, int *count);
 void	ft_putnbr_count(int n, int *count);
 int		putptr(void *ptr);
-
+void	print_pourcent(int *count);
 
 #endif
