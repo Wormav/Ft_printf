@@ -6,11 +6,11 @@
 /*   By: jlorette <jlorette@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/26 18:57:17 by jlorette          #+#    #+#             */
-/*   Updated: 2024/08/29 22:09:01 by jlorette         ###   ########.fr       */
+/*   Updated: 2024/08/30 13:10:57 by jlorette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
 void	putnbr_unsigned_fd(unsigned int n, int *count)
 {
@@ -50,9 +50,7 @@ void	ft_putnbr_count(int n, int *count)
 {
 	if (n == -2147483648)
 	{
-		ft_putchar_fd('-', 1);
-		ft_putchar_fd('2', 1);
-		n = 147483648;
+		write(1, "-2147483648", 11);
 		(*count) += 11;
 		return ;
 	}

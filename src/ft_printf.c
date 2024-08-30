@@ -6,13 +6,12 @@
 /*   By: jlorette <jlorette@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/29 21:33:11 by jlorette          #+#    #+#             */
-/*   Updated: 2024/08/29 22:07:23 by jlorette         ###   ########.fr       */
+/*   Updated: 2024/08/30 12:58:21 by jlorette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <stdarg.h>
-#include "../libft/libft.h"
+
 
 static void	string_gestion(char format, va_list *args, int *count)
 {
@@ -23,7 +22,7 @@ static void	string_gestion(char format, va_list *args, int *count)
 		ft_putchar_fd(va_arg(*args, int), 1);
 		(*count)++;
 	}
-	else if (format == 's')
+	else
 	{
 		s = va_arg(*args, char *);
 		if (!s)
@@ -62,7 +61,6 @@ int	ft_printf(const char *str, ...)
 {
 	va_list	args;
 	int		count;
-	char	*s;
 
 	if (!str)
 		return (-1);
