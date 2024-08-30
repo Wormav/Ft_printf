@@ -6,12 +6,11 @@
 /*   By: jlorette <jlorette@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/29 21:33:11 by jlorette          #+#    #+#             */
-/*   Updated: 2024/08/30 12:58:21 by jlorette         ###   ########.fr       */
+/*   Updated: 2024/08/30 22:24:40 by jlorette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
 
 static void	string_gestion(char format, va_list *args, int *count)
 {
