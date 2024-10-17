@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   string_convert.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jlorette <jlorette@42angouleme.fr>         +#+  +:+       +#+        */
+/*   By: jlorette <jlorette@student.42angouleme.f>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/26 14:35:12 by jlorette          #+#    #+#             */
-/*   Updated: 2024/08/30 12:57:54 by jlorette         ###   ########.fr       */
+/*   Created: 2024/08/29 21:33:11 by jlorette          #+#    #+#             */
+/*   Updated: 2024/10/17 11:30:09 by jlorette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

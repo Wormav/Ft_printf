@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   decimal_convert.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jlorette <jlorette@42angouleme.fr>         +#+  +:+       +#+        */
+/*   By: jlorette <jlorette@student.42angouleme.f>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/26 18:57:17 by jlorette          #+#    #+#             */
-/*   Updated: 2024/08/30 13:10:57 by jlorette         ###   ########.fr       */
+/*   Created: 2024/08/29 21:33:11 by jlorette          #+#    #+#             */
+/*   Updated: 2024/10/17 11:29:55 by jlorette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
