@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jlorette <jlorette@student.42angouleme.f>  +#+  +:+       +#+        */
+/*   By: jlorette <jlorette@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/30 12:39:44 by jlorette          #+#    #+#             */
-/*   Updated: 2024/10/17 11:30:02 by jlorette         ###   ########.fr       */
+/*   Updated: 2024/10/21 11:17:22 by jlorette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../include/ft_printf.h"
 
 static void	string_gestion(char format, va_list *args, int *count)
 {
@@ -33,8 +33,13 @@ static void	string_gestion(char format, va_list *args, int *count)
 
 static	void	decimal_gestion(char format, va_list *args, int *count)
 {
+	void	*ptr;
+
 	if (format == 'p')
-		*count += putptr(va_arg(*args, void *));
+	{
+		ptr = va_arg(*args, void *);
+		*count += putptr(ptr);
+	}
 	else if (format == 'd' || format == 'i')
 		ft_putnbr_count(va_arg(*args, int), count);
 	else if (format == 'u')

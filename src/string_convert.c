@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   string_convert.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jlorette <jlorette@student.42angouleme.f>  +#+  +:+       +#+        */
+/*   By: jlorette <jlorette@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/29 21:33:11 by jlorette          #+#    #+#             */
-/*   Updated: 2024/10/17 11:30:09 by jlorette         ###   ########.fr       */
+/*   Updated: 2024/10/19 22:53:44 by jlorette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../include/ft_printf.h"
 
 static int	putnbr_hex(unsigned long n)
 {
