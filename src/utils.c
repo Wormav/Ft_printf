@@ -1,41 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   string_convert.c                                   :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jlorette <jlorette@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/15 21:33:11 by jlorette          #+#    #+#             */
-/*   Updated: 2024/10/28 07:52:29 by jlorette         ###   ########.fr       */
+/*   Created: 2024/10/15 11:05:11 by jlorette          #+#    #+#             */
+/*   Updated: 2024/10/28 07:52:36 by jlorette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/ft_printf.h"
 
-static int	putnbr_hex(unsigned long n)
+void	ft_putchar_fd(char c, int fd)
 {
-	char	*hex_digits;
-	int		result;
-
-	hex_digits = "0123456789abcdef";
-	result = 0;
-	if (n >= 16)
-		result += putnbr_hex(n / 16);
-	result += write(1, &hex_digits[n % 16], 1);
-	return (result);
+	write(fd, &c, 1);
 }
 
-int	putptr(void *ptr)
+int	ft_strlen(const char *str)
 {
-	int	result;
+	int	i;
 
-	result = write(1, "0x", 2);
-	result += putnbr_hex((unsigned long)ptr);
-	return (result);
+	i = 0;
+	while (str[i])
+		i++;
+	return (i);
 }
 
-void	print_pourcent(int *count)
+void	ft_putstr_fd(char *s, int fd)
 {
-	ft_putchar_fd('%', 1);
-	(*count)++;
+	unsigned int	i;
+
+	if (!s)
+		return ;
+	i = 0;
+	while (s[i])
+	{
+		ft_putchar_fd(s[i], fd);
+		i++;
+	}
 }

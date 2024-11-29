@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jlorette <jlorette@42angouleme.fr>         +#+  +:+       +#+        */
+/*   By: jlorette <jlorette@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/29 21:33:11 by jlorette          #+#    #+#             */
-/*   Updated: 2024/08/30 22:24:40 by jlorette         ###   ########.fr       */
+/*   Created: 2024/08/30 12:39:44 by jlorette          #+#    #+#             */
+/*   Updated: 2024/10/30 14:45:14 by jlorette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../include/ft_printf.h"
 
 static void	string_gestion(char format, va_list *args, int *count)
 {
@@ -33,8 +33,19 @@ static void	string_gestion(char format, va_list *args, int *count)
 
 static	void	decimal_gestion(char format, va_list *args, int *count)
 {
+	void	*ptr;
+
 	if (format == 'p')
-		*count += putptr(va_arg(*args, void *));
+	{
+		ptr = va_arg(*args, void *);
+		if (!ptr)
+		{
+			ft_putstr_fd("(nil)", 1);
+			*count += 5;
+		}
+		else
+			*count += putptr(ptr);
+	}
 	else if (format == 'd' || format == 'i')
 		ft_putnbr_count(va_arg(*args, int), count);
 	else if (format == 'u')
